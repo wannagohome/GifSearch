@@ -8,9 +8,9 @@
 import Foundation
 
 struct SearchRequest: Codable {
-    let key: String
+    let key: String = Environment.apiKey
     let query: String
-    let offset: Int
+    let offset: Int = 0
     
     enum CodingKeys: String, CodingKey {
         case key = "api_key"

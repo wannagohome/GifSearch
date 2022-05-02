@@ -23,7 +23,7 @@ struct GIFData: Codable {
     
     let type: DataType
     let id: String
-    let url: String
+    let url: URL
     let slug: String
     let bitlyGIFURL, bitlyURL: URL
     let embedURL: URL

@@ -26,6 +26,8 @@
 		CDE602B5281F86D900750288 /* Encodable + Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602B4281F86D900750288 /* Encodable + Ex.swift */; };
 		CDE602B7281F870200750288 /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602B6281F870200750288 /* SearchAPI.swift */; };
 		CDE602BB281F8B1700750288 /* GIFModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602BA281F8B1700750288 /* GIFModel.swift */; };
+		CDE602BE281F945500750288 /* SearchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602BD281F945500750288 /* SearchUseCase.swift */; };
+		CDE602C0281F959600750288 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602BF281F959600750288 /* Environment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,9 @@
 		CDE602B4281F86D900750288 /* Encodable + Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable + Ex.swift"; sourceTree = "<group>"; };
 		CDE602B6281F870200750288 /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
 		CDE602BA281F8B1700750288 /* GIFModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFModel.swift; sourceTree = "<group>"; };
+		CDE602BD281F945500750288 /* SearchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUseCase.swift; sourceTree = "<group>"; };
+		CDE602BF281F959600750288 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		CDE602C2281F95D300750288 /* Keys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Keys.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +137,7 @@
 		CDE60290281F695A00750288 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				CDE602C1281F95B600750288 /* Config */,
 				CDE60291281F698100750288 /* Supporting Files */,
 				CDE60268281F677F00750288 /* Assets.xcassets */,
 				CDE6026A281F677F00750288 /* LaunchScreen.storyboard */,
@@ -233,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				CDE602B4281F86D900750288 /* Encodable + Ex.swift */,
+				CDE602BF281F959600750288 /* Environment.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -241,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				CDE602B9281F8B0100750288 /* Models */,
+				CDE602BC281F942F00750288 /* UseCases */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -251,6 +259,22 @@
 				CDE602BA281F8B1700750288 /* GIFModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CDE602BC281F942F00750288 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				CDE602BD281F945500750288 /* SearchUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		CDE602C1281F95B600750288 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				CDE602C2281F95D300750288 /* Keys.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -365,6 +389,8 @@
 				CDE602A4281F843A00750288 /* User.swift in Sources */,
 				CDE602AA281F849500750288 /* PaginationInfo.swift in Sources */,
 				CDE602B2281F868700750288 /* API.swift in Sources */,
+				CDE602BE281F945500750288 /* SearchUseCase.swift in Sources */,
+				CDE602C0281F959600750288 /* Environment.swift in Sources */,
 				CDE602A6281F847D00750288 /* MetaData.swift in Sources */,
 				CDE60260281F677F00750288 /* AppDelegate.swift in Sources */,
 				CDE60262281F677F00750288 /* SceneDelegate.swift in Sources */,
