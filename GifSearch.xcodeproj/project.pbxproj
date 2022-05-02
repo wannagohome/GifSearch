@@ -21,6 +21,10 @@
 		CDE602A6281F847D00750288 /* MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602A5281F847D00750288 /* MetaData.swift */; };
 		CDE602AA281F849500750288 /* PaginationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602A9281F849500750288 /* PaginationInfo.swift */; };
 		CDE602AC281F852100750288 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602AB281F852100750288 /* SearchRequest.swift */; };
+		CDE602AF281F85A700750288 /* SearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602AE281F85A700750288 /* SearchRepository.swift */; };
+		CDE602B2281F868700750288 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602B1281F868700750288 /* API.swift */; };
+		CDE602B5281F86D900750288 /* Encodable + Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602B4281F86D900750288 /* Encodable + Ex.swift */; };
+		CDE602B7281F870200750288 /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602B6281F870200750288 /* SearchAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		CDE602A5281F847D00750288 /* MetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaData.swift; sourceTree = "<group>"; };
 		CDE602A9281F849500750288 /* PaginationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationInfo.swift; sourceTree = "<group>"; };
 		CDE602AB281F852100750288 /* SearchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
+		CDE602AE281F85A700750288 /* SearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepository.swift; sourceTree = "<group>"; };
+		CDE602B1281F868700750288 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		CDE602B4281F86D900750288 /* Encodable + Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable + Ex.swift"; sourceTree = "<group>"; };
+		CDE602B6281F870200750288 /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +121,7 @@
 				CDE60293281F69E300750288 /* Presentation */,
 				CDE6029B281F6DCC00750288 /* Data */,
 				CDE60296281F6A9600750288 /* Infrastructure */,
+				CDE602B3281F86B600750288 /* Helper */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -171,6 +180,7 @@
 		CDE60296281F6A9600750288 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				CDE602B0281F867B00750288 /* APIs */,
 				CDE60297281F6AB700750288 /* NetworkManager.swift */,
 				CDE60299281F6BB400750288 /* NetworkError.swift */,
 			);
@@ -181,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				CDE6029E281F6F4200750288 /* Entities */,
+				CDE602AD281F858700750288 /* Repositories */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -196,6 +207,31 @@
 				CDE602A9281F849500750288 /* PaginationInfo.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		CDE602AD281F858700750288 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				CDE602AE281F85A700750288 /* SearchRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		CDE602B0281F867B00750288 /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				CDE602B1281F868700750288 /* API.swift */,
+				CDE602B6281F870200750288 /* SearchAPI.swift */,
+			);
+			path = APIs;
+			sourceTree = "<group>";
+		};
+		CDE602B3281F86B600750288 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				CDE602B4281F86D900750288 /* Encodable + Ex.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,13 +334,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDE602B5281F86D900750288 /* Encodable + Ex.swift in Sources */,
 				CDE602A2281F841E00750288 /* GIFData.swift in Sources */,
 				CDE602AC281F852100750288 /* SearchRequest.swift in Sources */,
 				CDE60298281F6AB700750288 /* NetworkManager.swift in Sources */,
+				CDE602AF281F85A700750288 /* SearchRepository.swift in Sources */,
+				CDE602B7281F870200750288 /* SearchAPI.swift in Sources */,
 				CDE602A0281F6F6E00750288 /* SearchResponse.swift in Sources */,
 				CDE60264281F677F00750288 /* SearchViewController.swift in Sources */,
 				CDE602A4281F843A00750288 /* User.swift in Sources */,
 				CDE602AA281F849500750288 /* PaginationInfo.swift in Sources */,
+				CDE602B2281F868700750288 /* API.swift in Sources */,
 				CDE602A6281F847D00750288 /* MetaData.swift in Sources */,
 				CDE60260281F677F00750288 /* AppDelegate.swift in Sources */,
 				CDE60262281F677F00750288 /* SceneDelegate.swift in Sources */,

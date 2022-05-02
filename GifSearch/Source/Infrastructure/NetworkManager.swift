@@ -21,12 +21,16 @@ protocol NetworkManagerType {
 }
 
 final class NetworkManager: NetworkManagerType {
+    
+    // MARK: - Properties
     private let session: URLSessionType
     
+    // MARK: - Initialization
     init(session: URLSessionType = URLSession.shared) {
         self.session = session
     }
     
+    // MARK: - Internal Methods
     func request(_ request: URLRequest, completionHandler: @escaping (Result<Data, Error>) -> ()) {
         
         self.session.dataTask(with: request) { data, response, error in
