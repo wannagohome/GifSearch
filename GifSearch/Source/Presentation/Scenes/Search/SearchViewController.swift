@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SearchViewController.swift
 //  GifSearch
 //
 //  Created by Jinho Jang on 2022/05/02.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

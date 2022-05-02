@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CDE60260281F677F00750288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE6025F281F677F00750288 /* AppDelegate.swift */; };
 		CDE60262281F677F00750288 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE60261281F677F00750288 /* SceneDelegate.swift */; };
-		CDE60264281F677F00750288 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE60263281F677F00750288 /* ViewController.swift */; };
+		CDE60264281F677F00750288 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE60263281F677F00750288 /* SearchViewController.swift */; };
 		CDE60269281F677F00750288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDE60268281F677F00750288 /* Assets.xcassets */; };
 		CDE6026C281F677F00750288 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDE6026A281F677F00750288 /* LaunchScreen.storyboard */; };
 		CDE60277281F678000750288 /* GifSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE60276281F678000750288 /* GifSearchTests.swift */; };
@@ -29,7 +29,7 @@
 		CDE6025C281F677F00750288 /* GifSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GifSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDE6025F281F677F00750288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDE60261281F677F00750288 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CDE60263281F677F00750288 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CDE60263281F677F00750288 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		CDE60268281F677F00750288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDE6026B281F677F00750288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDE6026D281F677F00750288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,12 +76,8 @@
 		CDE6025E281F677F00750288 /* GifSearch */ = {
 			isa = PBXGroup;
 			children = (
-				CDE6025F281F677F00750288 /* AppDelegate.swift */,
-				CDE60261281F677F00750288 /* SceneDelegate.swift */,
-				CDE60263281F677F00750288 /* ViewController.swift */,
-				CDE60268281F677F00750288 /* Assets.xcassets */,
-				CDE6026A281F677F00750288 /* LaunchScreen.storyboard */,
-				CDE6026D281F677F00750288 /* Info.plist */,
+				CDE60290281F695A00750288 /* Resource */,
+				CDE6028F281F694F00750288 /* Source */,
 			);
 			path = GifSearch;
 			sourceTree = "<group>";
@@ -92,6 +88,66 @@
 				CDE60276281F678000750288 /* GifSearchTests.swift */,
 			);
 			path = GifSearchTests;
+			sourceTree = "<group>";
+		};
+		CDE6028F281F694F00750288 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CDE60292281F69DA00750288 /* AppStart */,
+				CDE60293281F69E300750288 /* Presentation */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		CDE60290281F695A00750288 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CDE60291281F698100750288 /* Supporting Files */,
+				CDE60268281F677F00750288 /* Assets.xcassets */,
+				CDE6026A281F677F00750288 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		CDE60291281F698100750288 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CDE6026D281F677F00750288 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CDE60292281F69DA00750288 /* AppStart */ = {
+			isa = PBXGroup;
+			children = (
+				CDE6025F281F677F00750288 /* AppDelegate.swift */,
+				CDE60261281F677F00750288 /* SceneDelegate.swift */,
+			);
+			path = AppStart;
+			sourceTree = "<group>";
+		};
+		CDE60293281F69E300750288 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				CDE60294281F69EE00750288 /* Scenes */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CDE60294281F69EE00750288 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				CDE60295281F69F400750288 /* Search */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		CDE60295281F69F400750288 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CDE60263281F677F00750288 /* SearchViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,7 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDE60264281F677F00750288 /* ViewController.swift in Sources */,
+				CDE60264281F677F00750288 /* SearchViewController.swift in Sources */,
 				CDE60260281F677F00750288 /* AppDelegate.swift in Sources */,
 				CDE60262281F677F00750288 /* SceneDelegate.swift in Sources */,
 			);
@@ -353,7 +409,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YJQB4DVQ35;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GifSearch/Info.plist;
+				INFOPLIST_FILE = "GifSearch/Resource/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -382,7 +438,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YJQB4DVQ35;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = GifSearch/Info.plist;
+				INFOPLIST_FILE = "GifSearch/Resource/Supporting Files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
