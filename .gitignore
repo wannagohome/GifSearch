@@ -1,0 +1,5 @@
+.DS_Store
+*.xcuserstate
+.build/
+xcschememanagement.plist
+xcdebugger/
