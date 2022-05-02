@@ -25,6 +25,7 @@
 		CDE602B2281F868700750288 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602B1281F868700750288 /* API.swift */; };
 		CDE602B5281F86D900750288 /* Encodable + Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602B4281F86D900750288 /* Encodable + Ex.swift */; };
 		CDE602B7281F870200750288 /* SearchAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602B6281F870200750288 /* SearchAPI.swift */; };
+		CDE602BB281F8B1700750288 /* GIFModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602BA281F8B1700750288 /* GIFModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		CDE602B1281F868700750288 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		CDE602B4281F86D900750288 /* Encodable + Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable + Ex.swift"; sourceTree = "<group>"; };
 		CDE602B6281F870200750288 /* SearchAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAPI.swift; sourceTree = "<group>"; };
+		CDE602BA281F8B1700750288 /* GIFModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 			children = (
 				CDE60292281F69DA00750288 /* AppStart */,
 				CDE60293281F69E300750288 /* Presentation */,
+				CDE602B8281F8AE600750288 /* Domain */,
 				CDE6029B281F6DCC00750288 /* Data */,
 				CDE60296281F6A9600750288 /* Infrastructure */,
 				CDE602B3281F86B600750288 /* Helper */,
@@ -234,6 +237,22 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		CDE602B8281F8AE600750288 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				CDE602B9281F8B0100750288 /* Models */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		CDE602B9281F8B0100750288 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CDE602BA281F8B1700750288 /* GIFModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -334,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDE602BB281F8B1700750288 /* GIFModel.swift in Sources */,
 				CDE602B5281F86D900750288 /* Encodable + Ex.swift in Sources */,
 				CDE602A2281F841E00750288 /* GIFData.swift in Sources */,
 				CDE602AC281F852100750288 /* SearchRequest.swift in Sources */,
