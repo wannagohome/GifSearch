@@ -18,7 +18,7 @@ final class SearchViewController: UIViewController {
     private var viewModel: SearchViewModelType
     
     // MARK: - Views
-    private let searchBar = UISearchBar()
+    private let searchBar = DebounceSearchBar()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: CollectionViewLayout())
     
     // MARK: - Initialization
@@ -42,6 +42,7 @@ final class SearchViewController: UIViewController {
     // MARK: - Private Methods
     private func bind() {
         bindState()
+        bindAction()
     }
     
     private func attribute() {
@@ -52,7 +53,6 @@ final class SearchViewController: UIViewController {
     
     private func configureSearchBar() {
         searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.delegate = self
     }
     
     private func configureCollectionView() {
@@ -79,6 +79,20 @@ final class SearchViewController: UIViewController {
     }
 }
 
+// MARK: - Bind Actions
+private extension SearchViewController {
+    func bindAction() {
+        bindSearchBar()
+    }
+    
+    func bindSearchBar() {
+        searchBar.debounceText(delay: 0.8) { [weak self] str in
+            guard let str = str else { return }
+            self?.viewModel.typeSearchText(str)
+        }
+    }
+}
+
 // MARK: - Bind State
 private extension SearchViewController {
     func bindState() {
@@ -92,12 +106,6 @@ private extension SearchViewController {
                 self?.collectionView.reloadData()
             }
         }
-    }
-}
-
-extension SearchViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.typeSearchText(searchText)
     }
 }
 
