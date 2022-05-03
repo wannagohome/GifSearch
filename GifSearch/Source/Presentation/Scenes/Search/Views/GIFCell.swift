@@ -10,7 +10,7 @@ import UIKit
 final class GIFCell: UICollectionViewCell {
     
     // MARK: - Views
-    private let imageView = UIImageView()
+    private let imageView = CachingImageView()
     var model: GIFModel?
     
     // MARK: - Initialization
@@ -27,7 +27,11 @@ final class GIFCell: UICollectionViewCell {
     // MARK: - Internal Methods
     func configureCell(with info: GIFModel) {
         self.model = info
-        imageView.setGIF(info.url)
+        imageView.setImage(with: info.url)
+    }
+    
+    override func prepareForReuse() {
+        imageView.image = nil
     }
     
     // MARK: - Private Methods
@@ -44,19 +48,5 @@ final class GIFCell: UICollectionViewCell {
         imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-    }
-}
-
-fileprivate extension UIImageView {
-    func setGIF(_ url: URL) {
-        URLSession.shared.dataTask(with: URLRequest(url: url)) { [weak self] data, _, _ in
-            guard let data = data else {
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self?.image = UIImage(data: data)
-            }
-        }.resume()
     }
 }

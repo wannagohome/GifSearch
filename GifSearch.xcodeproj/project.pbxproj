@@ -32,6 +32,7 @@
 		CDE602C7281FF32700750288 /* GIFCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602C6281FF32700750288 /* GIFCell.swift */; };
 		CDE602CA2820CF4800750288 /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602C92820CF4800750288 /* CollectionViewLayout.swift */; };
 		CDE602CC2820E07200750288 /* DebounceSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602CB2820E07200750288 /* DebounceSearchBar.swift */; };
+		CDE602CE2821068100750288 /* CachingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602CD2821068100750288 /* CachingImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		CDE602C6281FF32700750288 /* GIFCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFCell.swift; sourceTree = "<group>"; };
 		CDE602C92820CF4800750288 /* CollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
 		CDE602CB2820E07200750288 /* DebounceSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebounceSearchBar.swift; sourceTree = "<group>"; };
+		CDE602CD2821068100750288 /* CachingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				CDE602C92820CF4800750288 /* CollectionViewLayout.swift */,
+				CDE602CD2821068100750288 /* CachingImageView.swift */,
 			);
 			path = BaseComponents;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				CDE602A6281F847D00750288 /* MetaData.swift in Sources */,
 				CDE60260281F677F00750288 /* AppDelegate.swift in Sources */,
 				CDE60262281F677F00750288 /* SceneDelegate.swift in Sources */,
+				CDE602CE2821068100750288 /* CachingImageView.swift in Sources */,
 				CDE602C7281FF32700750288 /* GIFCell.swift in Sources */,
 				CDE6029A281F6BB400750288 /* NetworkError.swift in Sources */,
 			);
