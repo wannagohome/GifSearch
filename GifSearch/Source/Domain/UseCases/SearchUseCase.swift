@@ -5,6 +5,8 @@
 //  Created by Jinho Jang on 2022/05/02.
 //
 
+import CoreGraphics
+
 protocol SearchUseCaseType {
     func search(
         query: String,
@@ -52,7 +54,13 @@ final class SearchUseCase: SearchUseCaseType {
             }
             
             let modelResult = result.map {
-                $0.data.map { GIFModel(url: $0.url) }
+                $0.data.map {
+                    GIFModel(
+                        url: $0.images.previewGIF.url,
+                        width: CGFloat(Int($0.images.previewGIF.width)!),
+                        height: CGFloat(Int($0.images.previewGIF.height)!)
+                    )
+                }
             }
             
             completionHandler(modelResult)

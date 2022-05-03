@@ -25,17 +25,18 @@ struct GIFData: Codable {
     let id: String
     let url: URL
     let slug: String
-    let bitlyGIFURL, bitlyURL: URL
+    let bitlyGIFURL, bitlyURL: String
     let embedURL: URL
     let username: String
     let source: String
     let title: String
     let rating: Rating
-    let contentURL, sourceTLD: URL
-    let sourcePostURL: URL
+    let contentURL, sourceTLD: String
+    let sourcePostURL: String
     let importDatetime, trendingDatetime: String
     let analyticsResponsePayload: String
     let user: User?
+    let images: Images
 
     enum CodingKeys: String, CodingKey {
         case type, id, url, slug
@@ -49,6 +50,20 @@ struct GIFData: Codable {
         case importDatetime = "import_datetime"
         case trendingDatetime = "trending_datetime"
         case analyticsResponsePayload = "analytics_response_payload"
-        case user
+        case user, images
     }
+}
+
+struct Images: Codable {
+    let previewGIF: Image
+    
+    enum CodingKeys: String, CodingKey {
+        case previewGIF = "preview_gif"
+    }
+}
+
+struct Image: Codable {
+    let url: URL
+    let width: String
+    let height: String
 }

@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import CoreGraphics
 
 struct GIFModel: Codable {
     let url: URL
+    let width: CGFloat
+    let height: CGFloat
 }
