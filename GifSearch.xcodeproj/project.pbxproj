@@ -40,6 +40,8 @@
 		CDE602E628227D4200750288 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602E528227D4200750288 /* SampleData.swift */; };
 		CDE602EB28227EAB00750288 /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602EA28227EAB00750288 /* NetworkManagerMock.swift */; };
 		CDE602ED282280F900750288 /* SearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602EC282280F900750288 /* SearchRepository.swift */; };
+		CDE602F228228E9F00750288 /* SearchRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602F128228E9F00750288 /* SearchRepositoryMock.swift */; };
+		CDE602F428228F4200750288 /* SearchUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602F328228F4200750288 /* SearchUseCaseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		CDE602E528227D4200750288 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		CDE602EA28227EAB00750288 /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
 		CDE602EC282280F900750288 /* SearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepository.swift; sourceTree = "<group>"; };
+		CDE602F128228E9F00750288 /* SearchRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoryMock.swift; sourceTree = "<group>"; };
+		CDE602F328228F4200750288 /* SearchUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUseCaseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 		CDE60275281F678000750288 /* GifSearchTests */ = {
 			isa = PBXGroup;
 			children = (
+				CDE602EE28228E5E00750288 /* Domain */,
 				CDE602E728227E8C00750288 /* Data */,
 				CDE602E128227CF400750288 /* Infrastructure */,
 				CDE60276281F678000750288 /* GifSearchTests.swift */,
@@ -377,6 +382,31 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		CDE602EE28228E5E00750288 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				CDE602F028228E6F00750288 /* Mocks */,
+				CDE602EF28228E6500750288 /* UseCases */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		CDE602EF28228E6500750288 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				CDE602F328228F4200750288 /* SearchUseCaseTests.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		CDE602F028228E6F00750288 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				CDE602F128228E9F00750288 /* SearchRepositoryMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -512,7 +542,9 @@
 				CDE602E428227D1000750288 /* URLSessionMock.swift in Sources */,
 				CDE602E028227CE600750288 /* NetworkManagerTests.swift in Sources */,
 				CDE602EB28227EAB00750288 /* NetworkManagerMock.swift in Sources */,
+				CDE602F228228E9F00750288 /* SearchRepositoryMock.swift in Sources */,
 				CDE602ED282280F900750288 /* SearchRepository.swift in Sources */,
+				CDE602F428228F4200750288 /* SearchUseCaseTests.swift in Sources */,
 				CDE60277281F678000750288 /* GifSearchTests.swift in Sources */,
 				CDE602E628227D4200750288 /* SampleData.swift in Sources */,
 			);
