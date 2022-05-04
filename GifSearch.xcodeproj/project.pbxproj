@@ -32,6 +32,8 @@
 		CDE602C7281FF32700750288 /* GIFCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602C6281FF32700750288 /* GIFCell.swift */; };
 		CDE602CC2820E07200750288 /* DebounceSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602CB2820E07200750288 /* DebounceSearchBar.swift */; };
 		CDE602CE2821068100750288 /* CachingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602CD2821068100750288 /* CachingImageView.swift */; };
+		CDE602D12822133F00750288 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602D02822133F00750288 /* DetailViewController.swift */; };
+		CDE602D3282214ED00750288 /* SearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602D2282214ED00750288 /* SearchViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		CDE602C6281FF32700750288 /* GIFCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GIFCell.swift; sourceTree = "<group>"; };
 		CDE602CB2820E07200750288 /* DebounceSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebounceSearchBar.swift; sourceTree = "<group>"; };
 		CDE602CD2821068100750288 /* CachingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingImageView.swift; sourceTree = "<group>"; };
+		CDE602D02822133F00750288 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CDE602D2282214ED00750288 /* SearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +186,7 @@
 		CDE60294281F69EE00750288 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				CDE602CF2822130F00750288 /* Detail */,
 				CDE60295281F69F400750288 /* Search */,
 			);
 			path = Scenes;
@@ -192,6 +197,7 @@
 			children = (
 				CDE602C5281FF31600750288 /* Views */,
 				CDE60263281F677F00750288 /* SearchViewController.swift */,
+				CDE602D2282214ED00750288 /* SearchViewPresenter.swift */,
 				CDE602C3281FDE0300750288 /* SearchViewModel.swift */,
 			);
 			path = Search;
@@ -305,6 +311,14 @@
 			path = BaseComponents;
 			sourceTree = "<group>";
 		};
+		CDE602CF2822130F00750288 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				CDE602D02822133F00750288 /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -407,6 +421,7 @@
 			files = (
 				CDE602BB281F8B1700750288 /* GIFModel.swift in Sources */,
 				CDE602B5281F86D900750288 /* Encodable + Ex.swift in Sources */,
+				CDE602D12822133F00750288 /* DetailViewController.swift in Sources */,
 				CDE602A2281F841E00750288 /* GIFData.swift in Sources */,
 				CDE602AC281F852100750288 /* SearchRequest.swift in Sources */,
 				CDE602C4281FDE0300750288 /* SearchViewModel.swift in Sources */,
@@ -417,6 +432,7 @@
 				CDE602CC2820E07200750288 /* DebounceSearchBar.swift in Sources */,
 				CDE60264281F677F00750288 /* SearchViewController.swift in Sources */,
 				CDE602A4281F843A00750288 /* User.swift in Sources */,
+				CDE602D3282214ED00750288 /* SearchViewPresenter.swift in Sources */,
 				CDE602AA281F849500750288 /* PaginationInfo.swift in Sources */,
 				CDE602B2281F868700750288 /* API.swift in Sources */,
 				CDE602BE281F945500750288 /* SearchUseCase.swift in Sources */,

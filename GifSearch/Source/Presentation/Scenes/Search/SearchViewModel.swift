@@ -10,6 +10,7 @@ import Foundation
 protocol SearchInput {
     func typeSearchText(_ str: String)
     func scrollHitsBottom()
+    func selectCell(of indexPath: IndexPath)
 }
 
 protocol SearchOutput {
@@ -17,12 +18,15 @@ protocol SearchOutput {
     var reloadTable: (([GIFModel]) -> ())? { get set}
 }
 
-protocol SearchViewModelType: SearchInput, SearchOutput {}
+protocol SearchViewModelType: SearchInput, SearchOutput {
+    var presenter: SearchViewPresenter? { get set }
+}
 
 final class SearchViewModel: SearchViewModelType {
     
     // MARK: - Properties
     private let usecase: SearchUseCaseType
+    var presenter: SearchViewPresenter?
     
     // MARK: - Initialization
     init(usecase: SearchUseCaseType) {
@@ -59,5 +63,9 @@ final class SearchViewModel: SearchViewModelType {
                 self?.errorMessage?(error.localizedDescription)
             }
         }
+    }
+    
+    func selectCell(of indexPath: IndexPath) {
+        presenter?.presentDetail(with: models[indexPath.row])
     }
 }

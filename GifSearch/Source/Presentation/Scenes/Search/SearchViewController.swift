@@ -14,7 +14,6 @@ final class SearchViewController: UIViewController {
     }
     
     // MARK: - Properties
-    private var models: [GIFModel] = []
     private var viewModel: SearchViewModelType
     private lazy var dataSource = UICollectionViewDiffableDataSource<Section, GIFModel>(
         collectionView: collectionView
@@ -35,6 +34,7 @@ final class SearchViewController: UIViewController {
     init(viewModel: SearchViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        self.viewModel.presenter = self
     }
     
     required init?(coder: NSCoder) {
@@ -144,5 +144,9 @@ extension SearchViewController: UICollectionViewDelegate {
         if scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height) {
             viewModel.scrollHitsBottom()
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.selectCell(of: indexPath)
     }
 }
