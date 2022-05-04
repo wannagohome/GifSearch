@@ -11,6 +11,7 @@ protocol SearchInput {
     func typeSearchText(_ str: String)
     func scrollHitsBottom()
     func selectCell(of indexPath: IndexPath)
+    func tapHeart()
 }
 
 protocol SearchOutput {
@@ -35,6 +36,7 @@ final class SearchViewModel: SearchViewModelType {
     
     // MARK: - States
     private var models: [GIFModel] = []
+    private var selectedIndex: Int?
     
     // MARK: - Outputs
     var errorMessage: ((String) -> ())?
@@ -66,6 +68,14 @@ final class SearchViewModel: SearchViewModelType {
     }
     
     func selectCell(of indexPath: IndexPath) {
-        presenter?.presentDetail(with: models[indexPath.row])
+        selectedIndex = indexPath.row
+        presenter?.presentDetail(with: models[indexPath.row], viewmodel: self)
+    }
+    
+    func tapHeart() {
+        if let selectedIndex = selectedIndex {
+            models[selectedIndex].isFavorite = true
+            usecase.toggleFavorite(of: models[selectedIndex].id)
+        }
     }
 }

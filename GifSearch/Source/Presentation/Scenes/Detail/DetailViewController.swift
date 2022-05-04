@@ -11,9 +11,14 @@ final class DetailViewController: UIViewController {
     
     // MARK: - Views
     private let imageView = CachingImageView()
+    private var model: GIFModel
+    private let viewModel: SearchViewModelType
     
     // MARK: - Initialization
-    init(model: GIFModel) {
+    init(model: GIFModel,
+         viewModel: SearchViewModelType) {
+        self.model = model
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
         imageView.setImage(with: model.url)
     }
@@ -33,6 +38,26 @@ final class DetailViewController: UIViewController {
     private func attribute() {
         view.backgroundColor = .white
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        configureNavigationBar()
+    }
+    
+    private func configureNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: heartImage(),
+            style: .plain,
+            target: self,
+            action: #selector(tapHeart)
+        )
+    }
+    
+    @objc private func tapHeart() {
+        viewModel.tapHeart()
+        model.isFavorite = !model.isFavorite
+        navigationItem.rightBarButtonItem?.image = heartImage()
+    }
+    
+    private func heartImage() -> UIImage {
+        model.isFavorite ? UIImage(systemName: "heart.fill")! : UIImage(systemName: "heart")!
     }
     
     private func layout() {

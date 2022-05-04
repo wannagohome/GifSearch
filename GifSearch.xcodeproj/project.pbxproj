@@ -34,6 +34,7 @@
 		CDE602CE2821068100750288 /* CachingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602CD2821068100750288 /* CachingImageView.swift */; };
 		CDE602D12822133F00750288 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602D02822133F00750288 /* DetailViewController.swift */; };
 		CDE602D3282214ED00750288 /* SearchViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602D2282214ED00750288 /* SearchViewPresenter.swift */; };
+		CDE602D72822477B00750288 /* FavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE602D62822477B00750288 /* FavoriteRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		CDE602CD2821068100750288 /* CachingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingImageView.swift; sourceTree = "<group>"; };
 		CDE602D02822133F00750288 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CDE602D2282214ED00750288 /* SearchViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewPresenter.swift; sourceTree = "<group>"; };
+		CDE602D62822477B00750288 /* FavoriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				CDE602AE281F85A700750288 /* SearchRepository.swift */,
+				CDE602D62822477B00750288 /* FavoriteRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				CDE602A0281F6F6E00750288 /* SearchResponse.swift in Sources */,
 				CDE602CC2820E07200750288 /* DebounceSearchBar.swift in Sources */,
 				CDE60264281F677F00750288 /* SearchViewController.swift in Sources */,
+				CDE602D72822477B00750288 /* FavoriteRepository.swift in Sources */,
 				CDE602A4281F843A00750288 /* User.swift in Sources */,
 				CDE602D3282214ED00750288 /* SearchViewPresenter.swift in Sources */,
 				CDE602AA281F849500750288 /* PaginationInfo.swift in Sources */,

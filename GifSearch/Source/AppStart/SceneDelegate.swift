@@ -15,8 +15,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         let networkManager = NetworkManager()
-        let repository = SearchRepository(networkManager: networkManager)
-        let usecase = SearchUseCase(repository: repository)
+        let searchRepository = SearchRepository(networkManager: networkManager)
+        let favoriteRepository = FavoriteRepository()
+        let usecase = SearchUseCase(
+            searchRepository: searchRepository,
+            favoriteRepository: favoriteRepository
+        )
         let viewModel = SearchViewModel(usecase: usecase)
         let vc = SearchViewController(viewModel: viewModel)
         

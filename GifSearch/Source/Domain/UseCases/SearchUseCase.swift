@@ -13,19 +13,23 @@ protocol SearchUseCaseType {
         _ completionHandler: @escaping (Result<[GIFModel], Error>) -> ()
     )
     func fetchNextPage(_ completionHandler: @escaping (Result<[GIFModel], Error>) -> ())
+    func toggleFavorite(of id: String)
 }
 
 final class SearchUseCase: SearchUseCaseType {
     
     // MARK: - Properties
-    private let repository: SearchRepositoryType
+    private let searchRepository: SearchRepositoryType
+    private let favoriteRepository: FavoriteRepositoryType
     private var requestData: SearchRequest!
     private var isEndOfPages: Bool = false
     private var isLoading: Bool = false
     
     // MARK: - Initialization
-    init(repository: SearchRepositoryType) {
-        self.repository = repository
+    init(searchRepository: SearchRepositoryType,
+         favoriteRepository: FavoriteRepositoryType) {
+        self.searchRepository = searchRepository
+        self.favoriteRepository = favoriteRepository
     }
     
     // MARK: - Internal Methods
@@ -50,15 +54,20 @@ final class SearchUseCase: SearchUseCaseType {
         sendRequest(completionHandler)
     }
     
+    func toggleFavorite(of id: String) {
+        favoriteRepository.switchFavorite(of: id)
+    }
+    
     // MARK: - Private Methods
     private func sendRequest(_ completionHandler: @escaping (Result<[GIFModel], Error>) -> ()) {
         self.isLoading = true
         
-        repository.search(for: requestData) { [weak self] result in
-            defer { self?.isLoading = false }
+        searchRepository.search(for: requestData) { [weak self] result in
+            guard let self = self else { return }
+            defer { self.isLoading = false }
             
             if let paginationInfo = try? result.get().pagination {
-                self?.setPageStatus(with: paginationInfo)
+                self.setPageStatus(with: paginationInfo)
             }
             
             let modelResult = result.map {
@@ -67,7 +76,11 @@ final class SearchUseCase: SearchUseCaseType {
                         return nil
                     }
                     
-                    return GIFModel(url: url)
+                    return GIFModel(
+                        id: res.id,
+                        url: url,
+                        isFavorite: self.favoriteRepository.loadFavorites().contains(res.id)
+                    )
                 }
             }
             

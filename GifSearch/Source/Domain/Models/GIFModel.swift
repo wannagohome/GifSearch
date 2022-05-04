@@ -7,6 +7,8 @@
 
 import Foundation
 
-struct GIFModel: Codable, Hashable {
+struct GIFModel: Codable, Hashable, Identifiable {
+    let id: String
     let url: URL
+    var isFavorite: Bool = false
 }

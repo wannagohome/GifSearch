@@ -23,6 +23,7 @@ final class SearchRepository: SearchRepositoryType {
     init(networkManager: NetworkManagerType) {
         self.networkManager = networkManager
     }
+    
     // MARK: - Internal Methods
     func search(
         for parameter: SearchRequest,
