@@ -9,6 +9,7 @@ import Foundation
 
 protocol SearchInput {
     func typeSearchText(_ str: String)
+    func scrollHitsBottom()
 }
 
 protocol SearchOutput {
@@ -42,6 +43,18 @@ final class SearchViewModel: SearchViewModelType {
             case .success(let models):
                 self?.models = models
                 self?.reloadTable?(models)
+            case .failure(let error):
+                self?.errorMessage?(error.localizedDescription)
+            }
+        }
+    }
+    
+    func scrollHitsBottom() {
+        usecase.fetchNextPage { [weak self] result in
+            switch result {
+            case .success(let models):
+                self?.models.append(contentsOf: models)
+                self?.reloadTable?(self?.models ?? [])
             case .failure(let error):
                 self?.errorMessage?(error.localizedDescription)
             }

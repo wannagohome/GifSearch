@@ -55,7 +55,7 @@ struct GIFData: Codable {
 }
 
 struct Images: Codable {
-    let previewGIF: Image
+    var previewGIF: Image?
     
     enum CodingKeys: String, CodingKey {
         case previewGIF = "preview_gif"
@@ -63,7 +63,7 @@ struct Images: Codable {
 }
 
 struct Image: Codable {
-    let url: URL
-    let width: String
-    let height: String
+    var url: URL?
+    var width: String?
+    var height: String?
 }

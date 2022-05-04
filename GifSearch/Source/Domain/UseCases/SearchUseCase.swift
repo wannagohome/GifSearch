@@ -12,6 +12,7 @@ protocol SearchUseCaseType {
         query: String,
         _ completionHandler: @escaping (Result<[GIFModel], Error>) -> ()
     )
+    func fetchNextPage(_ completionHandler: @escaping (Result<[GIFModel], Error>) -> ())
 }
 
 final class SearchUseCase: SearchUseCaseType {
@@ -21,7 +22,6 @@ final class SearchUseCase: SearchUseCaseType {
     private var requestData: SearchRequest!
     private var isEndOfPages: Bool = false
     private var isLoading: Bool = false
-    private var pageOffset: Int = 0
     
     // MARK: - Initialization
     init(repository: SearchRepositoryType) {
@@ -42,6 +42,14 @@ final class SearchUseCase: SearchUseCaseType {
         sendRequest(completionHandler)
     }
     
+    func fetchNextPage(_ completionHandler: @escaping (Result<[GIFModel], Error>) -> ()) {
+        guard !isLoading else {
+            return
+        }
+        
+        sendRequest(completionHandler)
+    }
+    
     // MARK: - Private Methods
     private func sendRequest(_ completionHandler: @escaping (Result<[GIFModel], Error>) -> ()) {
         self.isLoading = true
@@ -54,12 +62,12 @@ final class SearchUseCase: SearchUseCaseType {
             }
             
             let modelResult = result.map {
-                $0.data.map {
-                    GIFModel(
-                        url: $0.images.previewGIF.url,
-                        width: CGFloat(Int($0.images.previewGIF.width)!),
-                        height: CGFloat(Int($0.images.previewGIF.height)!)
-                    )
+                $0.data.compactMap { res -> GIFModel? in
+                    guard let url = res.images.previewGIF?.url else {
+                        return nil
+                    }
+                    
+                    return GIFModel(url: url)
                 }
             }
             
@@ -69,6 +77,6 @@ final class SearchUseCase: SearchUseCaseType {
     
     private func setPageStatus(with info: PaginationInfo) {
         isEndOfPages = (info.count + info.offset) > info.totalCount
-        pageOffset = info.count + info.offset
+        self.requestData.offset = info.count + info.offset
     }
 }

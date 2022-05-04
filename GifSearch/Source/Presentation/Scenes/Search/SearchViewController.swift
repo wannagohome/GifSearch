@@ -16,10 +16,20 @@ final class SearchViewController: UIViewController {
     // MARK: - Properties
     private var models: [GIFModel] = []
     private var viewModel: SearchViewModelType
+    private lazy var dataSource = UICollectionViewDiffableDataSource<Section, GIFModel>(
+        collectionView: collectionView
+    ) { cv, indexPath, item in
+        let cell = cv.dequeueReusableCell(
+            withReuseIdentifier: GIFCell.description(),
+            for: indexPath
+        ) as! GIFCell
+        cell.configureCell(with: item)
+        return cell
+    }
     
     // MARK: - Views
     private let searchBar = DebounceSearchBar()
-    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: CollectionViewLayout())
+    private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
     
     // MARK: - Initialization
     init(viewModel: SearchViewModelType) {
@@ -58,10 +68,7 @@ final class SearchViewController: UIViewController {
     private func configureCollectionView() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(GIFCell.self, forCellWithReuseIdentifier: GIFCell.description())
-        if let layout = collectionView.collectionViewLayout as? CollectionViewLayout {
-            layout.delegate = self
-        }
-        collectionView.dataSource = self
+        collectionView.delegate = self
     }
     
     private func layout() {
@@ -76,6 +83,27 @@ final class SearchViewController: UIViewController {
         collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+    }
+    
+    private func createLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                             heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                               heightDimension: .fractionalWidth(1/2))
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitem: item,
+            count: 2
+        )
+        group.interItemSpacing = .fixed(CGFloat.leastNonzeroMagnitude)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = CGFloat.leastNonzeroMagnitude
+
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
     }
 }
 
@@ -101,34 +129,20 @@ private extension SearchViewController {
     
     func bindTable() {
         viewModel.reloadTable = { [weak self] models in
-            self?.models = models
+            var snapShot = NSDiffableDataSourceSnapshot<Section, GIFModel>()
+            snapShot.appendSections([.gif])
+            snapShot.appendItems(models)
             DispatchQueue.main.async {
-                self?.collectionView.reloadData()
+                self?.dataSource.apply(snapShot)
             }
         }
     }
 }
 
-extension SearchViewController: CollectionViewLayoutDelegate {
-    func collectionView(_ collectionView: UICollectionView, heightForPhotoAtIndexPath indexPath: IndexPath) -> CGFloat {
-        let cellWidth = (UIScreen.main.bounds.width - 24) / 2.0
-        let imageWidth = models[indexPath.row].width
-        let imageHeight = models[indexPath.row].height
-        return cellWidth / imageWidth * imageHeight
-    }
-}
-
-extension SearchViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        models.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: GIFCell.description(),
-            for: indexPath
-        ) as! GIFCell
-        cell.configureCell(with: models[indexPath.row])
-        return cell
+extension SearchViewController: UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height) {
+            viewModel.scrollHitsBottom()
+        }
     }
 }
