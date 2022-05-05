@@ -27,7 +27,7 @@ final class SearchViewModel: SearchViewModelType {
     
     // MARK: - Properties
     private let usecase: SearchUseCaseType
-    var presenter: SearchViewPresenter?
+    weak var presenter: SearchViewPresenter?
     
     // MARK: - Initialization
     init(usecase: SearchUseCaseType) {

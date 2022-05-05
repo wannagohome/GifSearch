@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SearchViewPresenter {
+protocol SearchViewPresenter: AnyObject {
     func presentDetail(
         with model: GIFModel,
         viewmodel: SearchViewModelType
